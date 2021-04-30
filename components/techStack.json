@@ -1,0 +1,30 @@
+{
+  "techStack": {
+    "languages": [
+      {
+        "alt": "C++",
+        "slug": "cplusplus"
+      },
+      {
+        "alt": "Java",
+        "slug": "java"
+      },
+      {
+        "alt": "Python",
+        "slug": "python"
+      },
+      {
+        "alt": "JavaScript",
+        "slug": "javascript"
+      },
+      {
+        "alt": "HTML5",
+        "slug": "html5"
+      },
+      {
+        "alt": "CSS3",
+        "slug": "css3"
+      }
+    ]
+  }
+}

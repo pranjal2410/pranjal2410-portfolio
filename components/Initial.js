@@ -25,7 +25,7 @@ const Initial = ({ iconData, titles }) => {
     })
 
     return (
-        <Grid item container direction="column" justify="center" alignItems="center" className={classes.container} spacing={2}>
+        <Grid item container direction="column" justify="center" alignItems="center" className={classes.container} spacing={3}>
             <Grid item xs={12}>
                 <motion.div
                     initial={{ y: -250, opacity: 0 }}

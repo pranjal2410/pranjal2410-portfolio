@@ -5,25 +5,42 @@ import {useContext} from "react";
 import {ThemeContext} from "../components/theme";
 import simpleIcons from "simple-icons";
 import {data, titles} from "../components/initial.json";
-import {repos} from "../components/githubData.json";
+import {techStack} from "../components/techStack.json";
 import Initial from "../components/Initial";
+import TechStack from "../components/TechStack";
+
+const getIconData = (slug) => {
+    let icon = simpleIcons.get(slug);
+    return {
+        path: icon.path,
+        hex: icon.hex,
+        title: icon.title
+    }
+}
 
 export async function getStaticProps() {
     let iconData = data.map(({ alt, slug, url}, i) => {
-        let icon = simpleIcons.get(slug);
         return {
             alt: alt,
             url: url,
-            path: icon.path,
-            hex: icon.hex,
-            title: icon.title
+            ...getIconData(slug)
         };
     });
+
+    let languages = techStack.languages.map(({alt, slug}, i) => {
+        return {
+            alt: alt,
+            ...getIconData(slug)
+        }
+    })
 
     return {
         props: {
             iconData: iconData,
             titles: titles,
+            techStack: {
+                languages: languages
+            }
         }
     }
 }
@@ -45,6 +62,7 @@ const MainApp = (props) => {
             <Toolbar/>
             <Grid container direction="column" alignItems="center">
                 <Initial iconData={props.iconData} titles={props.titles}/>
+                <TechStack techStack={props.techStack}/>
             </Grid>
         </div>
     )
