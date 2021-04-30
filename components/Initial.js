@@ -14,15 +14,6 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const iconVariants = {
-    initial: {
-        opacity: 0
-    },
-    hover: {
-        scale: 1.1
-    }
-}
-
 const Initial = ({ iconData, titles }) => {
     const classes = useStyles();
     const theme = useTheme();
@@ -37,8 +28,8 @@ const Initial = ({ iconData, titles }) => {
         <Grid item container direction="column" justify="center" alignItems="center" className={classes.container} spacing={2}>
             <Grid item xs={12}>
                 <motion.div
-                    initial={{ y: -250 }}
-                    animate={{ y: 0 }}
+                    initial={{ y: -250, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5, type: 'spring', stiffness: 250 }}
                 >
                     <h1 className={classes.title}>
@@ -65,9 +56,8 @@ const Initial = ({ iconData, titles }) => {
                     return (
                         <Grid item key={i}>
                             <motion.div
-                                variants={iconVariants}
                                 initial={{ opacity: 0}}
-                                animate={{ opacity: 1, rotate: 360, transition: {delay: 0.8*i }}}
+                                animate={{ opacity: 1, rotate: 360, transition: {delay: 0.8*(i+1) }}}
                                 whileHover={{ scale: 1.3 }}
                             >
                                 <a href={url} target='_blank' rel='noopener noreferrer'>
