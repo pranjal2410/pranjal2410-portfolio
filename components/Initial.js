@@ -14,6 +14,15 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+const iconVariants = {
+    initial: {
+        opacity: 0
+    },
+    hover: {
+        scale: 1.1
+    }
+}
+
 const Initial = ({ iconData, titles }) => {
     const classes = useStyles();
     const theme = useTheme();
@@ -55,18 +64,23 @@ const Initial = ({ iconData, titles }) => {
                 {iconData.map(({alt, url, path, hex, title }, i) => {
                     return (
                         <Grid item key={i}>
-                            <a href={url} target='_blank' rel='noopener noreferrer'>
-                                <motion.div initial={{ opacity: 0}} animate={{ opacity: 1, rotate: 360}} transition={{ delay: 1*i}}>
+                            <motion.div
+                                variants={iconVariants}
+                                initial={{ opacity: 0}}
+                                animate={{ opacity: 1, rotate: 360, transition: {delay: 0.8*i }}}
+                                whileHover={{ scale: 1.3 }}
+                            >
+                                <a href={url} target='_blank' rel='noopener noreferrer'>
                                     <Tooltip title={alt}>
                                         <Avatar variant='rounded' style={{ backgroundColor: `#${hex}`, height: theme.spacing(8), width: theme.spacing(8), padding: theme.spacing(2)}}>
                                             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <title>{title}</title>
+                                                <title>{alt}</title>
                                                 <path d={path} fill="white"/>
                                             </svg>
                                         </Avatar>
                                     </Tooltip>
-                                </motion.div>
-                            </a>
+                                </a>
+                            </motion.div>
                         </Grid>
                     )
                 })}
