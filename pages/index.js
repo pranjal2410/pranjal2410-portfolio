@@ -3,11 +3,12 @@ import {motion} from "framer-motion";
 import {Brightness4, Brightness7} from '@material-ui/icons';
 import {useContext} from "react";
 import {ThemeContext} from "../components/theme";
+import Initial from "../components/Initial";
 
 const MainApp = () => {
     const {theme, toggleTheme} = useContext(ThemeContext);
     return (
-        <div style={{ flexGrow: 1}}>
+        <div style={{ flexGrow: 1, padding: '1%'}}>
             <AppBar style={{ boxShadow: 'none'}} color='transparent' position='fixed'>
                 <Toolbar>
                     <IconButton color='inherit' onClick={toggleTheme}>
@@ -15,6 +16,9 @@ const MainApp = () => {
                     </IconButton>
                 </Toolbar>
             </AppBar>
+            <Grid container direction="column" alignItems="center">
+                <Initial/>
+            </Grid>
         </div>
     )
 }
