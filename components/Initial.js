@@ -1,6 +1,7 @@
 import {Grid, Typography, makeStyles, Avatar, Zoom, Tooltip, useTheme} from "@material-ui/core";
 import {motion, AnimatePresence} from "framer-motion";
 import React, {useEffect, useState} from "react";
+import Image from "next/image";
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -57,7 +58,7 @@ const Initial = ({ iconData, titles }) => {
                         <Grid item key={i}>
                             <motion.div
                                 initial={{ opacity: 0}}
-                                animate={{ opacity: 1, rotate: 360, transition: {delay: 0.8*(i+1) }}}
+                                animate={{ opacity: 1, rotate: 360, transition: {delay: 0.3*(i+1) }}}
                                 whileHover={{ scale: 1.3 }}
                             >
                                 <a href={url} target='_blank' rel='noopener noreferrer'>
@@ -74,6 +75,16 @@ const Initial = ({ iconData, titles }) => {
                         </Grid>
                     )
                 })}
+            </Grid>
+            <Grid item xs={12}>
+                <motion.div
+                    initial={{ opacity: 0}}
+                    animate={{ opacity: 1, transition: {delay: 0.3*(iconData.length+1)}}}
+                >
+                    <Avatar variant='circle' style={{ width: theme.spacing(35), height: theme.spacing(40)}}>
+                        <Image src='/me.jpg' width={300} height={400} />
+                    </Avatar>
+                </motion.div>
             </Grid>
         </Grid>
     )

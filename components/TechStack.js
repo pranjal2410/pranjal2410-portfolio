@@ -20,7 +20,7 @@ const TechStack = ({techStack}) => {
     const theme = useTheme();
 
     return (
-        <Grid item container direction="column" alignItems="center">
+        <Grid item container direction="column" alignItems="flex-start">
             <Grid item xs={12}>
                 <h1 className={classes.title}>
                     Tech-Stack
@@ -31,7 +31,7 @@ const TechStack = ({techStack}) => {
                     Languages known
                 </h3>
             </Grid>
-            <Grid item container direction="row" justify="center" spacing={2}>
+            <Grid item container direction="row" justify="flex-start" spacing={2}>
                 {techStack.languages.map(({alt, path, hex, title }, i) => (
                     <Grid item key={i}>
                         <motion.div
