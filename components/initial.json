@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "alt": "GitHub",
+      "slug": "github",
+      "url": "https://github.com/pranjal2410/"
+    },
+    {
+      "alt": "LinkedIn",
+      "slug": "linkedin",
+      "url": "https://www.linkedin.com/in/pranjal-newalkar/"
+    },
+    {
+      "alt": "Resume",
+      "slug": "googledrive",
+      "url": "https://drive.google.com/file/d/1IFlBP90khO7czsv-6y6WgdtwHHSZknDh/view?usp=sharing"
+    }
+  ],
+  "titles": [
+    "Electronics & Telecommunication Engineering Student",
+    "Software Developer",
+    "Machine Learning Enthusiast",
+    "Interested in Research and Development"
+  ]
+}
