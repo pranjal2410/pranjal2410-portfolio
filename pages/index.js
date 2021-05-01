@@ -1,7 +1,7 @@
 import {Grid, AppBar, Toolbar, Typography, IconButton, MuiThemeProvider, CssBaseline} from "@material-ui/core";
-import {AnimatePresence, motion} from "framer-motion";
+import {AnimatePresence} from "framer-motion";
 import {Brightness4, Brightness7} from '@material-ui/icons';
-import {Component, useContext, useEffect, useState} from "react";
+import {Component, useContext, useState} from "react";
 import {ThemeContext} from "../components/theme";
 import simpleIcons from "simple-icons";
 import {data, titles} from "../components/initial.json";
@@ -47,6 +47,8 @@ export async function getStaticProps() {
     }
 }
 
+const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
+
 const tabVariants = {
     initial: {
         x: "50%",
@@ -55,22 +57,27 @@ const tabVariants = {
     enter: {
         x: "0%",
         opacity: 1,
+        transition
+    },
+    exit: {
+        x: "50%",
+        opacity: 0,
+        transition: { duration: 1.5, ...transition}
     }
 }
-
-const tabs = [
-    Initial,
-    TechStack
-]
 
 const MainApp = (props) => {
     const {theme, toggleTheme} = useContext(ThemeContext);
     const [tabIndex, setTabIndex] = useState(0);
 
-    useEffect(() => {
-        let interval = setInterval(() => setTabIndex((tabIndex+1)%tabs.length), 5000)
-        return () => clearInterval(interval);
-    }, [])
+    let tabs = [
+        Initial,
+        TechStack
+    ]
+
+    const handleClick = () => {
+        setTabIndex((tabIndex+1)%tabs.length);
+    }
 
     return (
         <div style={{ flexGrow: 1, padding: '1%'}}>
@@ -87,9 +94,10 @@ const MainApp = (props) => {
             <Toolbar/>
             <Grid container direction="column" alignItems="center">
                 <AnimatePresence exitBeforeEnter>
-                    {tabs.map((Component, i) => {
-                        return tabIndex===i?(<Component {...props} key={i} />):null;
-                    })}
+                    {tabs.map((Component, i) => tabIndex===i && (
+                            <Component {...props} />
+                        )
+                    )}
                 </AnimatePresence>
             </Grid>
         </div>
