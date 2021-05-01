@@ -1,0 +1,118 @@
+{
+  "techStack": {
+    "Languages": [
+      {
+        "alt": "C++",
+        "slug": "cplusplus"
+      },
+      {
+        "alt": "Java",
+        "slug": "java"
+      },
+      {
+        "alt": "Python",
+        "slug": "python"
+      },
+      {
+        "alt": "JavaScript",
+        "slug": "javascript"
+      },
+      {
+        "alt": "HTML5",
+        "slug": "html5"
+      },
+      {
+        "alt": "CSS3",
+        "slug": "css3"
+      }
+    ],
+    "Backend Technologies": [
+      {
+        "alt": "Django",
+        "slug": "django"
+      },
+      {
+        "alt": "Node.js",
+        "slug": "node-dot-js"
+      },
+      {
+        "alt": "Express",
+        "slug": "express"
+      },
+      {
+        "alt": "Flask",
+        "slug": "flask"
+      },
+      {
+        "alt": "FastAPI",
+        "slug": "fastapi"
+      }
+    ],
+    "Frontend Technologies": [
+      {
+        "alt": "React",
+        "slug": "react"
+      },
+      {
+        "alt": "Next.js",
+        "slug": "next-dot-js"
+      },
+      {
+        "alt": "Material-UI",
+        "slug": "material-ui"
+      },
+      {
+        "alt": "Bootstrap",
+        "slug": "bootstrap"
+      }
+    ],
+    "Database Engines": [
+      {
+        "alt": "MySQL",
+        "slug": "mysql"
+      },
+      {
+        "alt": "Firebase",
+        "slug": "firebase"
+      },
+      {
+        "alt": "MongoDB",
+        "slug": "mongodb"
+      },
+      {
+        "alt": "SQLite",
+        "slug": "sqlite"
+      }
+    ],
+    "Cloud & DevOps": [
+      {
+        "alt": "Azure DevOps",
+        "slug": "azuredevops"
+      },
+      {
+        "alt": "Google Cloud",
+        "slug": "googlecloud"
+      },
+      {
+        "alt": "Amazon AWS",
+        "slug": "amazonaws"
+      },
+      {
+        "alt": "Netlify",
+        "slug": "netlify"
+      },
+      {
+        "alt": "Vercel",
+        "slug": "vercel"
+      },
+      {
+        "alt": "NGINX",
+        "slug": "nginx"
+      },
+      {
+        "alt": "Docker",
+        "slug": "docker"
+      }
+    ]
+  }
+}

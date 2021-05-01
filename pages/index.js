@@ -4,8 +4,8 @@ import {Brightness4, Brightness7} from '@material-ui/icons';
 import {Component, useContext, useState} from "react";
 import {ThemeContext} from "../components/theme";
 import simpleIcons from "simple-icons";
-import {data, titles} from "../components/initial.json";
-import {techStack} from "../components/techStack.json";
+import {data, titles} from "../initial.json";
+import {techStack} from "../techStack.json";
 import Initial from "../components/Initial";
 import TechStack from "../components/TechStack";
 
@@ -95,7 +95,7 @@ const MainApp = (props) => {
             <Grid container direction="column" alignItems="center">
                 <AnimatePresence exitBeforeEnter>
                     {tabs.map((Component, i) => tabIndex===i && (
-                            <Component {...props} />
+                            <TechStack {...props} />
                         )
                     )}
                 </AnimatePresence>

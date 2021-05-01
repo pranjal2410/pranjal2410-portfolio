@@ -32,6 +32,7 @@ const Initial = ({ iconData, titles }) => {
                     initial={{ y: -250, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5, type: 'spring', stiffness: 250 }}
+                    inherit={false}
                 >
                     <h1 className={classes.title}>
                         Hello! This is Pranjal Newalkar
@@ -46,6 +47,7 @@ const Initial = ({ iconData, titles }) => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1, transition: {delay: 0.7} }}
                             exit={{ opacity: 0}}
+                            inherit={false}
                         >
                             <Typography variant='h5'>{title}</Typography>
                         </motion.div>
@@ -80,6 +82,7 @@ const Initial = ({ iconData, titles }) => {
                 <motion.div
                     initial={{ opacity: 0}}
                     animate={{ opacity: 1, transition: {delay: 0.3*(iconData.length+1)}}}
+                    inherit={false}
                 >
                     <Avatar variant='circle' style={{ width: theme.spacing(35), height: theme.spacing(40)}}>
                         <Image src='/me.jpg' width={300} height={400} loading='eager'/>
