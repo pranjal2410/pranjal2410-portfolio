@@ -11,7 +11,6 @@ const useStyles = makeStyles(theme => ({
         margin: '0',
         lineHeight: '1.15',
         fontSize: '4rem',
-        color: theme.palette.type==='dark'?'#00c0ff':'#0070f3'
     }
 }));
 
@@ -20,10 +19,10 @@ const TechStack = ({techStack, delayPeriod}) => {
     const theme = useTheme();
 
     return (
-        <Grid item container direction="column" alignItems="flex-start" xs={12}>
+        <Grid item container direction="row" alignItems="center" xs={12}>
             <Grid item xs={12} sm={6}>
                 <h1 className={classes.title}>
-                    Tech-Stack
+                    The tools and Technologies I have worked with
                 </h1>
             </Grid>
             <Grid item container direction="column" alignItems="flex-end" spacing={2} xs={12} sm={6}>
@@ -34,13 +33,13 @@ const TechStack = ({techStack, delayPeriod}) => {
                                 {key}
                             </motion.h3>
                         </Grid>
-                        <Grid item container direction="row" justify="flex-start" spacing={2}>
+                        <Grid item container direction="row" justify="flex-end" spacing={2}>
                             {techStack[key].map(({alt, path, hex, title }, j) => (
                                 <Grid item key={`${i}${j}`}>
                                     <motion.div
                                         initial={{ opacity: 0, scale: 1.2*i/2}}
-                                        animate={{ opacity: 1, scale: 1, transition: {delay: i+0.2*j, duration: 0.5} }}
-                                        whileHover={{ scale: 1.3 }}
+                                        animate={{ opacity: 1, scale: 1, transition: {delay: 0.1*i+0.1*j} }}
+                                        whileHover={{ scale: 1.2 }}
                                         inherit={false}
                                     >
                                         <Tooltip title={alt}>

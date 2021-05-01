@@ -1,5 +1,5 @@
 import {Grid, AppBar, Toolbar, Typography, IconButton, MuiThemeProvider, CssBaseline} from "@material-ui/core";
-import {AnimatePresence} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import {Brightness4, Brightness7} from '@material-ui/icons';
 import {Component, useContext, useState} from "react";
 import {ThemeContext} from "../components/theme";
@@ -80,7 +80,7 @@ const MainApp = (props) => {
     }
 
     return (
-        <div style={{ flexGrow: 1, padding: '1%'}}>
+        <motion.div style={{ flexGrow: 1, padding: '1%'}} onTap={handleClick}>
             <AppBar style={{ boxShadow: 'none'}} color='inherit' position='fixed'>
                 <Toolbar>
                     <Typography variant='h6' style={{ flexGrow: 1}}>
@@ -95,12 +95,12 @@ const MainApp = (props) => {
             <Grid container direction="column" alignItems="center">
                 <AnimatePresence exitBeforeEnter>
                     {tabs.map((Component, i) => tabIndex===i && (
-                            <TechStack {...props} />
+                            <Component {...props} key={i} />
                         )
                     )}
                 </AnimatePresence>
             </Grid>
-        </div>
+        </motion.div>
     )
 }
 
