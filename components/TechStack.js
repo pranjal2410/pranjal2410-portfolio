@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const TechStack = ({techStack}) => {
+const TechStack = ({techStack, delayPeriod}) => {
     const classes = useStyles();
     const theme = useTheme();
 
@@ -26,31 +26,35 @@ const TechStack = ({techStack}) => {
                     Tech-Stack
                 </h1>
             </Grid>
-            <Grid item xs={6} sm={3}>
-                <h3 className={classes.title}>
-                    Languages known
-                </h3>
-            </Grid>
-            <Grid item container direction="row" justify="flex-start" spacing={2}>
-                {techStack.languages.map(({alt, path, hex, title }, i) => (
-                    <Grid item key={i}>
-                        <motion.div
-                            initial={{ opacity: 0}}
-                            animate={{ opacity: 1, rotate: 360, transition: {delay: 0.8*(i+1)} }}
-                            whileHover={{ scale: 1.3 }}
-                        >
-                            <Tooltip title={alt}>
-                                <Avatar variant='rounded' style={{ backgroundColor: `#${hex}`, height: theme.spacing(8), width: theme.spacing(8), padding: theme.spacing(2)}}>
-                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <title>{alt}</title>
-                                        <path d={path} fill="white"/>
-                                    </svg>
-                                </Avatar>
-                            </Tooltip>
-                        </motion.div>
+            {Object.keys(techStack).map((key, i) => (
+                <React.Fragment key={i}>
+                    <Grid item xs={6} sm={3}>
+                        <h3 className={classes.title}>
+                            {key}
+                        </h3>
                     </Grid>
-                ))}
-            </Grid>
+                    <Grid item container direction="row" justify="flex-start" spacing={2}>
+                        {techStack[key].map(({alt, path, hex, title }, j) => (
+                            <Grid item key={`${i}${j}`}>
+                                <motion.div
+                                    initial={{ opacity: 0}}
+                                    animate={{ opacity: 1, rotate: 360, transition: {delay: 0.3*(delayPeriod+2+i+j)} }}
+                                    whileHover={{ scale: 1.3 }}
+                                >
+                                    <Tooltip title={alt}>
+                                        <Avatar variant='rounded' style={{ backgroundColor: `#${hex}`, height: theme.spacing(8), width: theme.spacing(8), padding: theme.spacing(2)}}>
+                                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <title>{alt}</title>
+                                                <path d={path} fill="white"/>
+                                            </svg>
+                                        </Avatar>
+                                    </Tooltip>
+                                </motion.div>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </React.Fragment>
+            ))}
         </Grid>
     )
 }

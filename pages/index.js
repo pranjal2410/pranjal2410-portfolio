@@ -62,7 +62,7 @@ const MainApp = (props) => {
             <Toolbar/>
             <Grid container direction="column" alignItems="center">
                 <Initial iconData={props.iconData} titles={props.titles}/>
-                <TechStack techStack={props.techStack}/>
+                <TechStack techStack={props.techStack} delayPeriod={props.iconData.length}/>
             </Grid>
         </div>
     )
