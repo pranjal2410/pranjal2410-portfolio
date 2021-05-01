@@ -1,7 +1,7 @@
 import {Grid, AppBar, Toolbar, Typography, IconButton, MuiThemeProvider, CssBaseline} from "@material-ui/core";
-import {motion} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import {Brightness4, Brightness7} from '@material-ui/icons';
-import {useContext} from "react";
+import {Component, useContext, useEffect, useState} from "react";
 import {ThemeContext} from "../components/theme";
 import simpleIcons from "simple-icons";
 import {data, titles} from "../components/initial.json";
@@ -27,26 +27,51 @@ export async function getStaticProps() {
         };
     });
 
-    let languages = techStack.languages.map(({alt, slug}, i) => {
-        return {
-            alt: alt,
-            ...getIconData(slug)
-        }
+    let obj = {};
+    Object.keys(techStack).map((key, i) => {
+        obj[key] = techStack[key].map(({alt, slug}, i) => {
+            return {
+                alt: alt,
+                ...getIconData(slug)
+            }
+        })
     })
 
     return {
         props: {
             iconData: iconData,
             titles: titles,
-            techStack: {
-                languages: languages
-            }
+            techStack: obj,
+            delayPeriod: iconData.length,
         }
     }
 }
 
+const tabVariants = {
+    initial: {
+        x: "50%",
+        opacity: 0,
+    },
+    enter: {
+        x: "0%",
+        opacity: 1,
+    }
+}
+
+const tabs = [
+    Initial,
+    TechStack
+]
+
 const MainApp = (props) => {
     const {theme, toggleTheme} = useContext(ThemeContext);
+    const [tabIndex, setTabIndex] = useState(0);
+
+    useEffect(() => {
+        let interval = setInterval(() => setTabIndex((tabIndex+1)%tabs.length), 5000)
+        return () => clearInterval(interval);
+    }, [])
+
     return (
         <div style={{ flexGrow: 1, padding: '1%'}}>
             <AppBar style={{ boxShadow: 'none'}} color='inherit' position='fixed'>
@@ -61,8 +86,11 @@ const MainApp = (props) => {
             </AppBar>
             <Toolbar/>
             <Grid container direction="column" alignItems="center">
-                <Initial iconData={props.iconData} titles={props.titles}/>
-                <TechStack techStack={props.techStack} delayPeriod={props.iconData.length}/>
+                <AnimatePresence exitBeforeEnter>
+                    {tabs.map((Component, i) => {
+                        return tabIndex===i?(<Component {...props} key={i} />):null;
+                    })}
+                </AnimatePresence>
             </Grid>
         </div>
     )

@@ -1,6 +1,7 @@
 import {Avatar, Grid, makeStyles, Tooltip, Typography, useTheme} from "@material-ui/core";
 import {motion} from "framer-motion";
 import React from "react";
+import {keyToTitle} from "./util";
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -30,7 +31,7 @@ const TechStack = ({techStack, delayPeriod}) => {
                 <React.Fragment key={i}>
                     <Grid item xs={6} sm={3}>
                         <h3 className={classes.title}>
-                            {key}
+                            {keyToTitle(key)}
                         </h3>
                     </Grid>
                     <Grid item container direction="row" justify="flex-start" spacing={2}>
@@ -38,7 +39,7 @@ const TechStack = ({techStack, delayPeriod}) => {
                             <Grid item key={`${i}${j}`}>
                                 <motion.div
                                     initial={{ opacity: 0}}
-                                    animate={{ opacity: 1, rotate: 360, transition: {delay: 0.3*(delayPeriod+2+i+j)} }}
+                                    animate={{ opacity: 1, rotate: 360, transition: {delay: 0.3*(i+j)} }}
                                     whileHover={{ scale: 1.3 }}
                                 >
                                     <Tooltip title={alt}>
