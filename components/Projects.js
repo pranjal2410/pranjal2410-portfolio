@@ -1,4 +1,4 @@
-import {Paper, CardActionArea, makeStyles, Grid, CardHeader, CardContent, Typography} from "@material-ui/core";
+import {Paper, CardActionArea, makeStyles, Grid, CardActions, Typography, Avatar, useTheme, Card, CardContent} from "@material-ui/core";
 import {motion} from "framer-motion";
 import React from "react";
 
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'left',
         textDecoration: 'none',
         border: '1px solid #eaeaea',
-        borderRadius: '10px',
+        borderRadius: '5%',
         transition: 'color 0.15s ease, border-color 0.15s ease',
         '&:hover, &:active, &:focus': {
             color: theme.palette.type === 'light'?'#0070f3': '#00c0ff',
@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Projects = ({ projects }) => {
     const classes = useStyles();
+    const theme = useTheme();
 
     return (
         <Grid item container direction="row" justify="center" style={{ maxWidth: 800}}>
@@ -80,15 +81,48 @@ const Projects = ({ projects }) => {
                             }}
                             inherit={false}
                         >
-                            <a href={project.project_link} style={{ textDecoration: "none" }}>
-                                <Paper className={classes.card} elevation={5}>
+                            <a href={project.project_link} target='_blank' rel='noopener noreferrer' style={{ textDecoration: "none"}}>
+                                <Card className={classes.card}>
                                     <Typography variant='h6' component='h3' style={{ margin: '0 0 1rem 0', fontSize: '1.5rem'}}>
                                         {project.name}
                                     </Typography>
                                     <Typography variant='subtitle1' component='p'>
                                         {project.description}
                                     </Typography>
-                                </Paper>
+                                    <CardActions>
+                                        <Grid container direction="row" justify="center" spacing={1}>
+                                            {Object.keys(project.techStack).map(key =>
+                                                {return project.techStack[key].map(({alt, path, hex, title }, j) => (
+                                                    <Grid item key={j}>
+                                                        <motion.div
+                                                            initial={{ opacity: 0,
+                                                                transition: {
+                                                                    duration: 1.5,
+                                                                    ease: [0.43, 0.13, 0.23, 0.96]
+                                                                }
+                                                            }}
+                                                            animate={{ opacity: 1, transition: {delay: 0.3*(j+1), duration: 1}}}
+                                                            exit={{ opacity: 0,
+                                                                transition: {
+                                                                    duration: 0.5*i,
+                                                                    ease: [0.43, 0.13, 0.23, 0.96]
+                                                                }
+                                                            }}
+                                                            inherit={false}
+                                                        >
+                                                            <Avatar variant='circular' style={{ backgroundColor: `#${hex}`, height: theme.spacing(3), width: theme.spacing(3), padding: theme.spacing(2)}}>
+                                                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <title>{alt}</title>
+                                                                    <path d={path} fill="white"/>
+                                                                </svg>
+                                                            </Avatar>
+                                                        </motion.div>
+                                                    </Grid>
+                                                ))}
+                                            )}
+                                        </Grid>
+                                    </CardActions>
+                                </Card>
                             </a>
                         </motion.div>
                     </Grid>
