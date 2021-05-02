@@ -1,5 +1,6 @@
 import {Paper, CardActionArea, makeStyles, Grid, CardHeader, CardContent, Typography} from "@material-ui/core";
 import {motion} from "framer-motion";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '1.15',
         textAlign: 'center',
         [theme.breakpoints.down('md')]: {
-            fontSize: '2.5rem',
+            fontSize: '4.5rem',
         },
         [theme.breakpoints.up('md')]: {
             fontSize: '6.5rem'
@@ -38,25 +39,58 @@ const Projects = ({ projects }) => {
     const classes = useStyles();
 
     return (
-        <Grid item container direction="row" justify="center" style={{ maxWidth: 650}}>
+        <Grid item container direction="row" justify="center" style={{ maxWidth: 800}}>
             <Grid item xs={12}>
-                <Typography variant='h1' className={classes.title}>
+                <motion.h3
+                    className={classes.title}
+                    initial={{ opacity: 0, x: "50%",
+                        transition: {
+                            duration: 1.5,
+                            ease: [0.43, 0.13, 0.23, 0.96]
+                        }
+                    }}
+                    animate={{ opacity: 1, x: "0%", transition: {delay: 0.3, duration: 1}}}
+                    exit={{ opacity: 0, x: "-50%",
+                        transition: {
+                            duration: 1.5,
+                            ease: [0.43, 0.13, 0.23, 0.96]
+                        }
+                    }}
+                    inherit={false}
+                >
                     Projects
-                </Typography>
+                </motion.h3>
             </Grid>
             {projects.map((project, i) => {
                 return (
                     <Grid item key={i} xs={12} sm={6}>
-                        <a href={project.project_link} style={{ textDecoration: "none" }}>
-                            <Paper className={classes.card} elevation={5}>
-                                <Typography variant='h6' component='h3' style={{ margin: '0 0 1rem 0', fontSize: '2.5rem'}}>
-                                    {project.name}
-                                </Typography>
-                                <Typography variant='body1' component='p'>
-                                    {project.description}
-                                </Typography>
-                            </Paper>
-                        </a>
+                        <motion.div
+                            initial={{ opacity: 0, y: i>=projects.length/2?"50%":"-50%",
+                                transition: {
+                                    duration: 1.5,
+                                    ease: [0.43, 0.13, 0.23, 0.96]
+                                }
+                            }}
+                            animate={{ opacity: 1, y: "0%", transition: {delay: 0.3*(i+1), duration: 1}}}
+                            exit={{ opacity: 0, y: i>=projects.length/2?"50%":"-50%",
+                                transition: {
+                                    duration: 0.5*i,
+                                    ease: [0.43, 0.13, 0.23, 0.96]
+                                }
+                            }}
+                            inherit={false}
+                        >
+                            <a href={project.project_link} style={{ textDecoration: "none" }}>
+                                <Paper className={classes.card} elevation={5}>
+                                    <Typography variant='h6' component='h3' style={{ margin: '0 0 1rem 0', fontSize: '1.5rem'}}>
+                                        {project.name}
+                                    </Typography>
+                                    <Typography variant='subtitle1' component='p'>
+                                        {project.description}
+                                    </Typography>
+                                </Paper>
+                            </a>
+                        </motion.div>
                     </Grid>
                 )
             })}
