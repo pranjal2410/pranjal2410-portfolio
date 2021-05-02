@@ -21,7 +21,7 @@ const TechStack = ({techStack, delayPeriod}) => {
     const breakpoint = useMediaQuery(theme.breakpoints.down('md'))
 
     return (
-        <Grid item container direction="row" alignItems="center" xs={12}>
+        <Grid item container direction="row" alignItems="center" xs={12} className={classes.container}>
             <Grid item xs={12} sm={6}>
                 <motion.h1 className={classes.title} initial={{ opacity: 0, x: "50%" }} animate={{ opacity: 1, x: "0%",
                     transition: {
@@ -32,17 +32,17 @@ const TechStack = ({techStack, delayPeriod}) => {
                     The tools and Technologies I have worked with
                 </motion.h1>
             </Grid>
-            <Grid item container direction={breakpoint?"column":"row"} justify="center" spacing={2} xs={12} sm={6}>
+            <Grid item container direction="column" alignItems="center" spacing={2} xs={12}>
                 {Object.keys(techStack).map((key, i) => (
-                    <Grid item container="column" alignItems={breakpoint?"center":"flex-start"} spacing={2} xs={12} sm={6}>
+                    <React.Fragment key={key}>
                         <Grid item xs={12}>
                             <motion.h3 initial={{ opacity: 0 }} animate={{ opacity: 1, transition: {delay: 0.8*i} }}>
                                 {key}
                             </motion.h3>
                         </Grid>
-                        <Grid item container direction="row" justify={breakpoint?"center":"flex-start"} spacing={2} xs={12}>
+                        <Grid item container direction="row" justify="center" spacing={2} xs={12}>
                             {techStack[key].map(({alt, path, hex, title }, j) => (
-                                <Grid item key={`${i}${j}`}>
+                                <Grid item key={title}>
                                     <motion.div
                                         initial={{ opacity: 0, scale: 1.2*i/2}}
                                         animate={{ opacity: 1, scale: 1, transition: {delay: 0.05*i+0.2*j} }}
@@ -61,7 +61,7 @@ const TechStack = ({techStack, delayPeriod}) => {
                                 </Grid>
                             ))}
                         </Grid>
-                    </Grid>
+                    </React.Fragment>
                 ))}
             </Grid>
         </Grid>

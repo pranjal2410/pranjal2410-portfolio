@@ -8,6 +8,8 @@ import {data, titles} from "../initial.json";
 import {techStack} from "../techStack.json";
 import Initial from "../components/Initial";
 import TechStack from "../components/TechStack";
+import Projects from "../components/Projects";
+import {projects} from "../githubData.json";
 
 const getIconData = (slug) => {
     let icon = simpleIcons.get(slug);
@@ -37,12 +39,24 @@ export async function getStaticProps() {
         })
     })
 
+    projects.map(project => {
+        let projectTechStack = {};
+        Object.keys(project.techStack).map(key => {
+            projectTechStack[key] = [];
+            project.techStack[key].map(tool => {
+                projectTechStack[key].push({alt: getIconData(tool).title, ...getIconData(tool)})
+            })
+        })
+        project.techStack = projectTechStack;
+    })
+
     return {
         props: {
             iconData: iconData,
             titles: titles,
             techStack: obj,
             delayPeriod: iconData.length,
+            projects
         }
     }
 }
@@ -73,7 +87,7 @@ const MainApp = (props) => {
 
     let tabs = [
         Initial,
-        TechStack
+        TechStack,
     ]
 
     const handleClick = () => {
