@@ -31,8 +31,13 @@ const Initial = ({ iconData, titles }) => {
                 <motion.div
                     initial={{ y: -250, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
+                    exit={{ x: "50%", opacity: 0,
+                        transition: {
+                            duration: 1.5,
+                            ease: [0.43, 0.13, 0.23, 0.96]
+                        }
+                    }}
                     transition={{ delay: 0.5, duration: 0.5, type: 'spring', stiffness: 250 }}
-                    inherit={false}
                 >
                     <h1 className={classes.title}>
                         Hello! This is Pranjal Newalkar
@@ -46,7 +51,12 @@ const Initial = ({ iconData, titles }) => {
                             key={i}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1, transition: {delay: 0.7} }}
-                            exit={{ opacity: 0}}
+                            exit={{ opacity: 0, x: "50%",
+                                transition: {
+                                    duration: 1.5,
+                                    ease: [0.43, 0.13, 0.23, 0.96]
+                                }
+                            }}
                             inherit={false}
                         >
                             <Typography variant='h5'>{title}</Typography>
@@ -61,6 +71,12 @@ const Initial = ({ iconData, titles }) => {
                             <motion.div
                                 initial={{ opacity: 0}}
                                 animate={{ opacity: 1, transition: {delay: 0.5+0.3*(i+1) }}}
+                                exit={{ opacity: 0, x: "50%",
+                                    transition: {
+                                        duration: 1.5,
+                                        ease: [0.43, 0.13, 0.23, 0.96]
+                                    }
+                                }}
                                 whileHover={{ scale: 1.3 }}
                             >
                                 <a href={url} target='_blank' rel='noopener noreferrer'>
@@ -82,6 +98,12 @@ const Initial = ({ iconData, titles }) => {
                 <motion.div
                     initial={{ opacity: 0}}
                     animate={{ opacity: 1, transition: {delay: 0.3*(iconData.length+1)}}}
+                    exit={{ opacity: 0, x: "50%",
+                        transition: {
+                            duration: 1.5,
+                            ease: [0.43, 0.13, 0.23, 0.96]
+                        }
+                    }}
                     inherit={false}
                 >
                     <Avatar variant='circle' style={{ width: theme.spacing(35), height: theme.spacing(40)}}>

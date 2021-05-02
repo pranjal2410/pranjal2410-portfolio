@@ -23,11 +23,21 @@ const TechStack = ({techStack, delayPeriod}) => {
     return (
         <Grid item container direction="row" alignItems="center" xs={12}>
             <Grid item xs={12} sm={6}>
-                <motion.h1 className={classes.title} initial={{ opacity: 0, x: "50%" }} animate={{ opacity: 1, x: "0%",
-                    transition: {
-                        duration: 1.5,
-                        ease: [0.43, 0.13, 0.23, 0.96]
-                    }}}
+                <motion.h1
+                    className={classes.title}
+                    initial={{ opacity: 0, x: "50%" }}
+                    animate={{ opacity: 1, x: "0%",
+                        transition: {
+                            duration: 1.5,
+                            ease: [0.43, 0.13, 0.23, 0.96]
+                        }}
+                    }
+                    exit={{ opacity: 0, x: "50%",
+                        transition: {
+                            duration: 1.5,
+                            ease: [0.43, 0.13, 0.23, 0.96]
+                        }
+                    }}
                 >
                     The tools and Technologies I have worked with
                 </motion.h1>
@@ -36,7 +46,16 @@ const TechStack = ({techStack, delayPeriod}) => {
                 {Object.keys(techStack).map((key, i) => (
                     <React.Fragment key={key}>
                         <Grid item xs={12}>
-                            <motion.h3 initial={{ opacity: 0 }} animate={{ opacity: 1, transition: {delay: 0.8*i} }}>
+                            <motion.h3
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1, transition: {delay: 0.8*i} }}
+                                exit={{ opacity: 0, x: "50%",
+                                    transition: {
+                                        duration: 1.5,
+                                        ease: [0.43, 0.13, 0.23, 0.96]
+                                    }
+                                }}
+                            >
                                 {key}
                             </motion.h3>
                         </Grid>
@@ -47,6 +66,12 @@ const TechStack = ({techStack, delayPeriod}) => {
                                         initial={{ opacity: 0, scale: 1.2*i/2}}
                                         animate={{ opacity: 1, scale: 1, transition: {delay: 0.05*i+0.2*j} }}
                                         whileHover={{ scale: 1.2 }}
+                                        exit={{ opacity: 0, x: "50%",
+                                            transition: {
+                                                duration: 1.5,
+                                                ease: [0.43, 0.13, 0.23, 0.96]
+                                            }
+                                        }}
                                         inherit={false}
                                     >
                                         <Tooltip title={alt}>
