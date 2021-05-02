@@ -1,4 +1,4 @@
-import {Avatar, Grid, makeStyles, Tooltip, Typography, useTheme} from "@material-ui/core";
+import {Avatar, Grid, makeStyles, Tooltip, Typography, useTheme, useMediaQuery} from "@material-ui/core";
 import {motion} from "framer-motion";
 import React from "react";
 
@@ -18,23 +18,29 @@ const useStyles = makeStyles(theme => ({
 const TechStack = ({techStack, delayPeriod}) => {
     const classes = useStyles();
     const theme = useTheme();
+    const breakpoint = useMediaQuery(theme.breakpoints.down('md'))
 
     return (
         <Grid item container direction="row" alignItems="center" xs={12}>
             <Grid item xs={12} sm={6}>
-                <h1 className={classes.title}>
+                <motion.h1 className={classes.title} initial={{ opacity: 0, x: "50%" }} animate={{ opacity: 1, x: "0%",
+                    transition: {
+                        duration: 1.5,
+                        ease: [0.43, 0.13, 0.23, 0.96]
+                    }}}
+                >
                     The tools and Technologies I have worked with
-                </h1>
+                </motion.h1>
             </Grid>
-            <Grid item container direction="column" alignItems="flex-end" spacing={2} xs={12} sm={6}>
+            <Grid item container direction={breakpoint?"column":"row"} justify="center" spacing={2} xs={12} sm={6}>
                 {Object.keys(techStack).map((key, i) => (
-                    <React.Fragment key={i}>
-                        <Grid item xs={12} sm={6}>
+                    <Grid item container="column" alignItems={breakpoint?"center":"flex-start"} spacing={2} xs={12} sm={6}>
+                        <Grid item xs={12}>
                             <motion.h3 initial={{ opacity: 0 }} animate={{ opacity: 1, transition: {delay: 0.8*i} }}>
                                 {key}
                             </motion.h3>
                         </Grid>
-                        <Grid item container direction="row" justify="flex-end" spacing={2}>
+                        <Grid item container direction="row" justify={breakpoint?"center":"flex-start"} spacing={2} xs={12}>
                             {techStack[key].map(({alt, path, hex, title }, j) => (
                                 <Grid item key={`${i}${j}`}>
                                     <motion.div
@@ -55,7 +61,7 @@ const TechStack = ({techStack, delayPeriod}) => {
                                 </Grid>
                             ))}
                         </Grid>
-                    </React.Fragment>
+                    </Grid>
                 ))}
             </Grid>
         </Grid>

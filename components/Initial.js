@@ -31,7 +31,7 @@ const Initial = ({ iconData, titles }) => {
                 <motion.div
                     initial={{ y: -250, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.2, duration: 0.5, type: 'spring', stiffness: 250 }}
+                    transition={{ delay: 0.5, duration: 0.5, type: 'spring', stiffness: 250 }}
                     inherit={false}
                 >
                     <h1 className={classes.title}>
@@ -60,7 +60,7 @@ const Initial = ({ iconData, titles }) => {
                         <Grid item key={i}>
                             <motion.div
                                 initial={{ opacity: 0}}
-                                animate={{ opacity: 1, transition: {delay: 0.3*(i+1) }}}
+                                animate={{ opacity: 1, transition: {delay: 0.5+0.3*(i+1) }}}
                                 whileHover={{ scale: 1.3 }}
                             >
                                 <a href={url} target='_blank' rel='noopener noreferrer'>

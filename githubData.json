@@ -10,16 +10,19 @@
           "javascript",
           "python"
         ],
-        "Frontend": [
+        "Frontend Technologies": [
           "react"
         ],
-        "Backend": [
+        "Backend Technologies": [
           "django"
         ],
         "Database Engines": [
           "sqlite"
         ]
       }
+    },
+    {
+      "name": "SysAdmin"
     }
   ]
 }

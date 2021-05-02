@@ -120,6 +120,10 @@
       {
         "alt": "Docker",
         "slug": "docker"
+      },
+      {
+        "alt": "Git",
+        "slug": "git"
       }
     ]
   }
