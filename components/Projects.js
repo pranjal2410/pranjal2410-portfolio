@@ -75,7 +75,8 @@ const Projects = ({ projects }) => {
                             animate={{ opacity: 1, y: "0%", transition: {delay: 0.3*(i+1), duration: 1}}}
                             exit={{ opacity: 0, y: i>=projects.length/2?"50%":"-50%",
                                 transition: {
-                                    duration: 0.5*i,
+                                    delay: 0.2*(i+1),
+                                    duration: 1,
                                     ease: [0.43, 0.13, 0.23, 0.96]
                                 }
                             }}
@@ -92,7 +93,7 @@ const Projects = ({ projects }) => {
                                     <CardActions>
                                         <Grid container direction="row" justify="center" spacing={1}>
                                             {Object.keys(project.techStack).map(key =>
-                                                {return project.techStack[key].map(({alt, path, hex, title }, j) => (
+                                                {return project.techStack[key].map(({alt, hex, path, title}, j) => (
                                                     <Grid item key={j}>
                                                         <motion.div
                                                             initial={{ opacity: 0,
@@ -101,7 +102,7 @@ const Projects = ({ projects }) => {
                                                                     ease: [0.43, 0.13, 0.23, 0.96]
                                                                 }
                                                             }}
-                                                            animate={{ opacity: 1, transition: {delay: 0.3*(j+1), duration: 1}}}
+                                                            animate={{ opacity: 1, transition: {delay: 0.4*(j+1), duration: 1.5}}}
                                                             exit={{ opacity: 0,
                                                                 transition: {
                                                                     duration: 0.5*i,
@@ -110,10 +111,10 @@ const Projects = ({ projects }) => {
                                                             }}
                                                             inherit={false}
                                                         >
-                                                            <Avatar variant='circular' style={{ backgroundColor: `#${hex}`, height: theme.spacing(3), width: theme.spacing(3), padding: theme.spacing(2)}}>
+                                                            <Avatar variant='circular' style={{ backgroundColor: `#${hex}`, height: theme.spacing(8), width: theme.spacing(8), padding: theme.spacing(2)}}>
                                                                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                                     <title>{alt}</title>
-                                                                    <path d={path} fill="white"/>
+                                                                    <path d={path} fill="white" />
                                                                 </svg>
                                                             </Avatar>
                                                         </motion.div>
