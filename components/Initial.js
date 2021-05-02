@@ -96,8 +96,13 @@ const Initial = ({ iconData, titles }) => {
             </Grid>
             <Grid item xs={12}>
                 <motion.div
-                    initial={{ opacity: 0}}
-                    animate={{ opacity: 1, transition: {delay: 0.3*(iconData.length+1)}}}
+                    initial={{ opacity: 0, x: "50%",
+                        transition: {
+                        duration: 1.5,
+                        ease: [0.43, 0.13, 0.23, 0.96]
+                    }
+                    }}
+                    animate={{ opacity: 1, x: "0%", transition: {delay: 0.3*(iconData.length+1), duration: 1}}}
                     exit={{ opacity: 0, x: "50%",
                         transition: {
                             duration: 1.5,

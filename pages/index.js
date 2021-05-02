@@ -88,6 +88,7 @@ const MainApp = (props) => {
     let tabs = [
         Initial,
         TechStack,
+        Projects
     ]
 
     const handleClick = () => {
