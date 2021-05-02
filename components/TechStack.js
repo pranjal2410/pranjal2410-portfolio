@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
         margin: '0',
         lineHeight: '1.15',
         fontSize: '4rem',
+        textAlign: 'center'
     }
 }));
 
@@ -38,7 +39,7 @@ const TechStack = ({techStack, delayPeriod}) => {
                                 <Grid item key={`${i}${j}`}>
                                     <motion.div
                                         initial={{ opacity: 0, scale: 1.2*i/2}}
-                                        animate={{ opacity: 1, scale: 1, transition: {delay: 0.1*i+0.1*j} }}
+                                        animate={{ opacity: 1, scale: 1, transition: {delay: 0.05*i+0.2*j} }}
                                         whileHover={{ scale: 1.2 }}
                                         inherit={false}
                                     >

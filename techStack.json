@@ -64,6 +64,10 @@
       {
         "alt": "Bootstrap",
         "slug": "bootstrap"
+      },
+      {
+        "alt": "Framer",
+        "slug": "framer"
       }
     ],
     "Database Engines": [
@@ -96,6 +100,10 @@
       {
         "alt": "Amazon AWS",
         "slug": "amazonaws"
+      },
+      {
+        "alt": "Heroku",
+        "slug": "heroku"
       },
       {
         "alt": "Netlify",

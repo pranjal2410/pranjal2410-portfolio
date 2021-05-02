@@ -1,0 +1,25 @@
+{
+  "projects": [
+    {
+      "name": "VITAlumni",
+      "description": "A portal on which the staff and passed out students of Vishwakarma Institute of Technology, Pune can register themselves with their email id and receive updates from other users and college",
+      "startDate": "November 2020",
+      "endDate": "December 2020",
+      "techStack": {
+        "Languages": [
+          "javascript",
+          "python"
+        ],
+        "Frontend": [
+          "react"
+        ],
+        "Backend": [
+          "django"
+        ],
+        "Database Engines": [
+          "sqlite"
+        ]
+      }
+    }
+  ]
+}
