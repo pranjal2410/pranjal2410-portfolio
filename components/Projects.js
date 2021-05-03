@@ -1,4 +1,4 @@
-import {Paper, CardActionArea, makeStyles, Grid, CardActions, Typography, Avatar, useTheme, Card, CardContent} from "@material-ui/core";
+import {makeStyles, Grid, CardActions, Typography, Avatar, useTheme, Card, Paper} from "@material-ui/core";
 import {motion} from "framer-motion";
 import React from "react";
 
@@ -83,7 +83,7 @@ const Projects = ({ projects }) => {
                             inherit={false}
                         >
                             <a href={project.project_link} target='_blank' rel='noopener noreferrer' style={{ textDecoration: "none"}}>
-                                <Card className={classes.card}>
+                                <Card className={classes.card} component={Paper} elevation={5}>
                                     <Typography variant='h6' component='h3' style={{ margin: '0 0 1rem 0', fontSize: '1.5rem'}}>
                                         {project.name}
                                     </Typography>

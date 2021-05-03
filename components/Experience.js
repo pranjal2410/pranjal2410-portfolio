@@ -1,6 +1,5 @@
-import {Grid, Typography, Card, makeStyles, useTheme, Paper, Avatar, CardHeader, CardContent} from "@material-ui/core";
+import {Grid, Typography, Card, makeStyles, useTheme, Paper} from "@material-ui/core";
 import {motion} from "framer-motion";
-import {CalendarToday} from "@material-ui/icons";
 import Image from "next/image";
 import React from "react";
 

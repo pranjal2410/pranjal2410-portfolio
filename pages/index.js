@@ -84,10 +84,6 @@ const tabVariants = {
     }
 }
 
-const buttonVariants = [
-
-]
-
 const MainApp = (props) => {
     const {theme, toggleTheme} = useContext(ThemeContext);
     const [tabIndex, setTabIndex] = useState(0);
@@ -146,7 +142,7 @@ const MainApp = (props) => {
                             variant='contained'
                         >
                             {tabs.map(({name}, i) => (
-                                <ToggleButton key={i} value={i}>{name}</ToggleButton>
+                                <ToggleButton key={i} value={i} selected={i===tabIndex}>{name}</ToggleButton>
                             ))}
                         </ToggleButtonGroup>
                     </Grid>
