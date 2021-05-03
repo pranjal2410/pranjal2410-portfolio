@@ -1,0 +1,28 @@
+{
+  "experience": [
+    {
+      "organization": "PICT IEEE Student Branch",
+      "role": "Technical Head",
+      "type": "Member",
+      "startDate": "February 2019",
+      "endDate": "Present",
+      "image": {
+        "src": "/organization-pisb.png",
+        "height": 200,
+        "width": 400
+      }
+    },
+    {
+      "organization": "Mindkosh",
+      "role": "Backend Developer",
+      "type": "Intern",
+      "startDate": "March 2021",
+      "endData": "June 2021",
+      "image": {
+        "src": "/organization-mindkosh.jpeg",
+        "height": 200,
+        "width": 200
+      }
+    }
+  ]
+}

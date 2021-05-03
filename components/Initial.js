@@ -21,7 +21,7 @@ const Initial = ({ iconData, titles }) => {
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
-        let interval = setInterval(() => setIndex((index+1)%titles.length), 4000);
+        let interval = setInterval(() => setIndex((index+1)%titles.length), 6000);
         return () => clearInterval(interval);
     })
 
@@ -49,8 +49,9 @@ const Initial = ({ iconData, titles }) => {
                     {titles.map((title, i) => index===i && (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1, transition: {delay: 0.7} }}
+                            initial={{ opacity: 0, x: "-50%" }}
+                            animate={{ opacity: 1, x: "0%", transition: {delay: 0.7, duration: 1.5,
+                                    ease: [0.43, 0.13, 0.23, 0.96]} }}
                             exit={{ opacity: 0, x: "50%",
                                 transition: {
                                     duration: 1.5,

@@ -87,6 +87,9 @@ const Projects = ({ projects }) => {
                                     <Typography variant='h6' component='h3' style={{ margin: '0 0 1rem 0', fontSize: '1.5rem'}}>
                                         {project.name}
                                     </Typography>
+                                    <Typography variant='subtitle2' gutterBottom component='h3'>
+                                        {project.startDate} - {project.endDate}
+                                    </Typography>
                                     <Typography variant='subtitle1' component='p'>
                                         {project.description}
                                     </Typography>

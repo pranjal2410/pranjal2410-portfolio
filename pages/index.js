@@ -10,6 +10,8 @@ import Initial from "../components/Initial";
 import TechStack from "../components/TechStack";
 import Projects from "../components/Projects";
 import {projects} from "../githubData.json";
+import {experience} from "../experienceData.json";
+import Experience from "../components/Experience";
 
 const getIconData = (slug) => {
     let icon = simpleIcons.get(slug);
@@ -56,6 +58,7 @@ export async function getStaticProps() {
             titles: titles,
             techStack: obj,
             delayPeriod: iconData.length,
+            experience: experience,
             projects
         }
     }
@@ -88,7 +91,8 @@ const MainApp = (props) => {
     let tabs = [
         Initial,
         TechStack,
-        Projects
+        Projects,
+        Experience
     ]
 
     const handleClick = () => {

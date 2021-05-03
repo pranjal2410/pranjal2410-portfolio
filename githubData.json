@@ -25,7 +25,7 @@
     {
       "name": "SysAdmin",
       "description": "Run or Schedule bash/cmd scripts on your machine remotely using REST APIs. Compatible with Ubuntu and Windows",
-      "starDate": "January 2021",
+      "startDate": "January 2021",
       "endDate": "February 2021",
       "project_link": "https://github.com/pranjal2410/SysAdmin/",
       "techStack": {
@@ -42,7 +42,7 @@
     {
       "name": "Clash",
       "description": "A technical MCQ platform developed for an event in the annual techfest Credenz organised by PICT IEEE Student Branch",
-      "starDate": "July 2019",
+      "startDate": "July 2019",
       "endDate": "September 2019",
       "project_link": "https://github.com/pranjal2410/Clash/",
       "techStack": {
@@ -66,7 +66,7 @@
     {
       "name": "Reverse Coding",
       "description": "A technical integer type answer platform developed for an event in the annual techfest Credenz organised by PICT IEEE Student Branch",
-      "starDate": "July 2019",
+      "startDate": "July 2019",
       "endDate": "September 2019",
       "project_link": "https://github.com/pranjal2410/Reverse-Coding/",
       "techStack": {
