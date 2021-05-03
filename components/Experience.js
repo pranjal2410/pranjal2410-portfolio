@@ -68,9 +68,10 @@ const Experience = ({ experience }) => {
                     <Grid item key={i} xs={12} sm={6}>
                         <motion.div
                             initial={{ opacity: 0, scale: 1.2, y: `${-50*Math.pow(-1, i)}%`}}
-                            animate={{ opacity: 1, scale: 1, y: "0%", transition: {delay: 0.5*i} }}
+                            animate={{ opacity: 1, scale: 1, y: "0%", transition: {delay: 0.5*i, duration: 1} }}
                             exit={{ opacity: 0, x: "-50%",
                                 transition: {
+                                    delay: 0.5*i,
                                     duration: 1.5,
                                     ease: [0.43, 0.13, 0.23, 0.96]
                                 }

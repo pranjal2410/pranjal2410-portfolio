@@ -53,7 +53,7 @@ const TechStack = ({techStack, delayPeriod}) => {
                         <Grid item xs={12}>
                             <motion.h3
                                 initial={{ opacity: 0 }}
-                                animate={{ opacity: 1, transition: {delay: 0.6*i} }}
+                                animate={{ opacity: 1, transition: {delay: 0.3*i} }}
                                 exit={{ opacity: 0, x: "50%",
                                     transition: {
                                         duration: 1.5,
