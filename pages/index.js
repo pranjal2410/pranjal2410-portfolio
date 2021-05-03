@@ -1,5 +1,6 @@
-import {Grid, AppBar, Toolbar, Typography, IconButton, MuiThemeProvider, CssBaseline} from "@material-ui/core";
+import {Grid, AppBar, Toolbar, Typography, IconButton, MuiThemeProvider, CssBaseline, Hidden, Tabs, Tab, useTheme, useMediaQuery} from "@material-ui/core";
 import {AnimatePresence, motion} from "framer-motion";
+import {ToggleButtonGroup, ToggleButton} from "@material-ui/lab";
 import {Brightness4, Brightness7} from '@material-ui/icons';
 import {Component, useContext, useState} from "react";
 import {ThemeContext} from "../components/theme";
@@ -86,35 +87,68 @@ const tabVariants = {
 const MainApp = (props) => {
     const {theme, toggleTheme} = useContext(ThemeContext);
     const [tabIndex, setTabIndex] = useState(0);
-
+    const mdDown = useMediaQuery(useTheme().breakpoints.down('md'));
+    const smDown = useMediaQuery(useTheme().breakpoints.down('sm'))
 
     let tabs = [
-        Initial,
-        TechStack,
-        Projects,
-        Experience
+        {Component: Initial, name: 'Intro'},
+        {Component: TechStack, name: 'Skills'},
+        {Component: Projects, name: 'Projects'},
+        {Component: Experience, name: 'Experience'},
     ]
 
-    const handleClick = () => {
-        setTabIndex((tabIndex+1)%tabs.length);
+    const handleTabChange = (event, newTab) => {
+        setTabIndex(newTab);
     }
 
     return (
-        <motion.div style={{ flexGrow: 1, padding: '1%', overflow: "hidden" }} onTap={handleClick}>
-            <AppBar style={{ boxShadow: 'none'}} color='inherit' position='fixed'>
+        <motion.div style={{ flexGrow: 1, padding: '1%', overflow: "hidden" }}>
+            <AppBar style={{ boxShadow: 'none'}} color={mdDown?'inherit':'transparent'} position='fixed'>
                 <Toolbar>
                     <Typography variant='h6' style={{ flexGrow: 1}}>
                         Portfolio
                     </Typography>
+                    <Hidden mdDown>
+                        <Tabs
+                            value={tabIndex}
+                            onChange={handleTabChange}
+                            indicatorColor="primary"
+                            textColor="primary"
+                            centered
+                            fullWidth={true}
+                        >
+                            {tabs.map(({name}, i) => (
+                                <Tab label={name} key={i}/>
+                            ))}
+                        </Tabs>
+                    </Hidden>
                     <IconButton color='inherit' onClick={toggleTheme} edge="end">
                         {theme.palette.type==='dark'?(<Brightness7/>):(<Brightness4/>)}
                     </IconButton>
                 </Toolbar>
             </AppBar>
             <Toolbar/>
-            <Grid container direction="column" alignItems="center">
+            <Grid container direction="column" alignItems="center" spacing={2}>
+                <Hidden lgUp>
+                    <Grid item xs={12}>
+                        <ToggleButtonGroup
+                            size={smDown?"small":mdDown?"medium":"large"}
+                            color="primary"
+                            onChange={handleTabChange}
+                            value={tabIndex}
+                            aria-label="Navigation Buttons"
+                            exclusive
+                            style={{ marginTop: '2%'}}
+                            variant='contained'
+                        >
+                            {tabs.map(({name}, i) => (
+                                <ToggleButton key={i} value={i}>{name}</ToggleButton>
+                            ))}
+                        </ToggleButtonGroup>
+                    </Grid>
+                </Hidden>
                 <AnimatePresence exitBeforeEnter>
-                    {tabs.map((Component, i) => tabIndex===i && (
+                    {tabs.map(({Component}, i) => tabIndex===i && (
                             <Component {...props} key={i} />
                         )
                     )}
