@@ -105,7 +105,7 @@ const MainApp = (props) => {
         <motion.div style={{ flexGrow: 1, padding: '1%', overflow: "hidden" }}>
             <AppBar style={{ boxShadow: 'none'}} color={mdDown?'inherit':'transparent'} position='fixed'>
                 <Toolbar>
-                    <Typography variant='h6'>
+                    <Typography variant='h6' style={{ flexGrow: mdDown?1:false}}>
                         Portfolio
                     </Typography>
                     <Hidden mdDown>
