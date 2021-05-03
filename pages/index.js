@@ -84,6 +84,10 @@ const tabVariants = {
     }
 }
 
+const buttonVariants = [
+
+]
+
 const MainApp = (props) => {
     const {theme, toggleTheme} = useContext(ThemeContext);
     const [tabIndex, setTabIndex] = useState(0);
@@ -105,7 +109,7 @@ const MainApp = (props) => {
         <motion.div style={{ flexGrow: 1, padding: '1%', overflow: "hidden" }}>
             <AppBar style={{ boxShadow: 'none'}} color={mdDown?'inherit':'transparent'} position='fixed'>
                 <Toolbar>
-                    <Typography variant='h6' style={{ flexGrow: 1}}>
+                    <Typography variant='h6'>
                         Portfolio
                     </Typography>
                     <Hidden mdDown>
@@ -114,8 +118,8 @@ const MainApp = (props) => {
                             onChange={handleTabChange}
                             indicatorColor="primary"
                             textColor="primary"
+                            style={{ flexGrow: 3}}
                             centered
-                            fullWidth={true}
                         >
                             {tabs.map(({name}, i) => (
                                 <Tab label={name} key={i}/>

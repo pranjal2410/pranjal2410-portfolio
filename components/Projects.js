@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('md')]: {
             fontSize: '4.5rem',
         },
-        [theme.breakpoints.up('md')]: {
+        [theme.breakpoints.up('lg')]: {
             fontSize: '6.5rem'
         },
     }
@@ -44,14 +44,14 @@ const Projects = ({ projects }) => {
             <Grid item xs={12}>
                 <motion.h3
                     className={classes.title}
-                    initial={{ opacity: 0, x: "50%",
+                    initial={{ opacity: 0, y: "50%",
                         transition: {
                             duration: 1.5,
                             ease: [0.43, 0.13, 0.23, 0.96]
                         }
                     }}
-                    animate={{ opacity: 1, x: "0%", transition: {delay: 0.3, duration: 1}}}
-                    exit={{ opacity: 0, x: "-50%",
+                    animate={{ opacity: 1, y: "0%", transition: {delay: 0.3, duration: 1}}}
+                    exit={{ opacity: 0, y: "-50%",
                         transition: {
                             duration: 1.5,
                             ease: [0.43, 0.13, 0.23, 0.96]
@@ -66,14 +66,14 @@ const Projects = ({ projects }) => {
                 return (
                     <Grid item key={i} xs={12} sm={6}>
                         <motion.div
-                            initial={{ opacity: 0, y: i>=projects.length/2?"50%":"-50%",
+                            initial={{ opacity: 0, x: i/2!==0?"50%":"-50%",
                                 transition: {
                                     duration: 1.5,
                                     ease: [0.43, 0.13, 0.23, 0.96]
                                 }
                             }}
-                            animate={{ opacity: 1, y: "0%", transition: {delay: 0.3*(i+1), duration: 1}}}
-                            exit={{ opacity: 0, y: i>=projects.length/2?"50%":"-50%",
+                            animate={{ opacity: 1, x: "0%", transition: {delay: 0.3*(i+1), duration: 1}}}
+                            exit={{ opacity: 0, x: i/2!==0?"50%":"-50%",
                                 transition: {
                                     delay: 0.2*(i+1),
                                     duration: 1,
