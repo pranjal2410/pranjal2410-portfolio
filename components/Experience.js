@@ -1,16 +1,16 @@
-import {Grid, Typography, Card, makeStyles, useTheme, useMediaQuery, Avatar} from "@material-ui/core";
+import {Grid, Typography, Card, makeStyles, useTheme, Paper, Avatar, CardHeader, CardContent} from "@material-ui/core";
 import {motion} from "framer-motion";
+import {CalendarToday} from "@material-ui/icons";
 import Image from "next/image";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
     card: {
-        margin: '1rem',
-        flexBasis: '45%',
+        margin: '1.5rem',
         padding: '1.5rem',
-        textAlign: 'left',
+        textAlign: 'center',
         textDecoration: 'none',
-        alignContent: 'center',
+        justifyContent: 'center',
         border: '1px solid #eaeaea',
         borderRadius: '5%',
         transition: 'color 0.15s ease, border-color 0.15s ease',
@@ -42,34 +42,34 @@ const Experience = ({ experience }) => {
     const theme = useTheme();
 
     return (
-        <Grid item container direction="row-reverse" alignItems="center">
+        <Grid item container direction="row-reverse" alignItems="center" style={{ height: "100%"}}>
             <Grid item xs={12} sm={6}>
                 <motion.h1
                     className={classes.title}
-                    initial={{ opacity: 0, x: "50%" }}
+                    initial={{ opacity: 0, x: "-50%" }}
                     animate={{ opacity: 1, x: "0%",
                         transition: {
                             duration: 1.5,
                             ease: [0.43, 0.13, 0.23, 0.96]
                         }}
                     }
-                    exit={{ opacity: 0, x: "50%",
+                    exit={{ opacity: 0, y: "50%",
                         transition: {
                             duration: 1.5,
                             ease: [0.43, 0.13, 0.23, 0.96]
                         }
                     }}
                 >
-                    My Experience
+                    Work Experience
                 </motion.h1>
             </Grid>
-            <Grid item container direction="column" alignItems="center" xs={12} sm={6}>
+            <Grid item container direction="row" justify="center" alignItems="flex-start" xs={12} sm={6} spacing={1}>
                 {experience.map((work, i) => (
-                    <Grid item key={i}>
+                    <Grid item key={i} xs={12} sm={6}>
                         <motion.div
-                            initial={{ opacity: 0, scale: 1.2*i/2}}
-                            animate={{ opacity: 1, scale: 1, transition: {delay: 0.5*i} }}
-                            exit={{ opacity: 0, x: "50%",
+                            initial={{ opacity: 0, scale: 1.2, y: `${-50*Math.pow(-1, i)}%`}}
+                            animate={{ opacity: 1, scale: 1, y: "0%", transition: {delay: 0.5*i} }}
+                            exit={{ opacity: 0, x: "-50%",
                                 transition: {
                                     duration: 1.5,
                                     ease: [0.43, 0.13, 0.23, 0.96]
@@ -77,15 +77,28 @@ const Experience = ({ experience }) => {
                             }}
                             inherit={false}
                         >
-                            <Card className={classes.card}>
-                                <Avatar variant="rounded">
+                            <a href={work.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                                <Card className={classes.card} component={Paper} elevation={5}>
                                     <Image
                                         src={work.image.src}
-                                        layout="fill"
+                                        width={work.image.width}
+                                        height={work.image.height}
                                         loading='eager'
                                     />
-                                </Avatar>
-                            </Card>
+                                    <Typography variant='h5'>
+                                        {work.organization}
+                                    </Typography>
+                                    <Typography variant='h6'>
+                                        {work.role}
+                                    </Typography>
+                                    <Typography variant='subtitle1' gutterBottom>
+                                        {work.startDate} - {work.endDate}
+                                    </Typography>
+                                    <Typography variant='subtitle2' gutterBottom>
+                                        {work.location}
+                                    </Typography>
+                                </Card>
+                            </a>
                         </motion.div>
                     </Grid>
                 ))}
