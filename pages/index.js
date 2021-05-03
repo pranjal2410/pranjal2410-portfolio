@@ -100,7 +100,7 @@ const MainApp = (props) => {
     }
 
     return (
-        <motion.div style={{ flexGrow: 1, padding: '1%'}} onTap={handleClick}>
+        <motion.div style={{ flexGrow: 1, padding: '1%', overflow: "hidden" }} onTap={handleClick}>
             <AppBar style={{ boxShadow: 'none'}} color='inherit' position='fixed'>
                 <Toolbar>
                     <Typography variant='h6' style={{ flexGrow: 1}}>

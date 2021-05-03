@@ -1,4 +1,4 @@
-import {Grid, Typography, Card, makeStyles, useTheme, useMediaQuery} from "@material-ui/core";
+import {Grid, Typography, Card, makeStyles, useTheme, useMediaQuery, Avatar} from "@material-ui/core";
 import {motion} from "framer-motion";
 import Image from "next/image";
 import React from "react";
@@ -22,6 +22,17 @@ const useStyles = makeStyles((theme) => ({
             margin: 0,
             fontSize: '1.25rem',
             lineHeight: '1.5'
+        },
+    },
+    title: {
+        margin: '2%',
+        lineHeight: '1.15',
+        textAlign: 'center',
+        [theme.breakpoints.down('md')]: {
+            fontSize: '2.5rem',
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '6.5rem'
         },
     },
 }))
@@ -67,12 +78,13 @@ const Experience = ({ experience }) => {
                             inherit={false}
                         >
                             <Card className={classes.card}>
-                                <Image
-                                    src={work.image.src}
-                                    height={work.image.height}
-                                    width={work.image.width}
-                                    loading='eager'
-                                />
+                                <Avatar variant="rounded">
+                                    <Image
+                                        src={work.image.src}
+                                        layout="fill"
+                                        loading='eager'
+                                    />
+                                </Avatar>
                             </Card>
                         </motion.div>
                     </Grid>

@@ -1,6 +1,6 @@
-import {ThemeContext, ThemeContextProvider} from "../components/theme";
-import {MuiThemeProvider, CssBaseline} from "@material-ui/core";
-import React, {useContext, useEffect} from "react";
+import {ThemeContextProvider} from "../components/theme";
+import {AnimateSharedLayout} from "framer-motion";
+import React, {useEffect} from "react";
 import Head from "next/head";
 
 function MyApp({Component, pageProps}){
@@ -18,9 +18,11 @@ function MyApp({Component, pageProps}){
             <Head>
                 <title>Pranjal Newalkar</title>
             </Head>
-            <ThemeContextProvider>
-                <Component {...pageProps} />
-            </ThemeContextProvider>
+            <AnimateSharedLayout>
+                <ThemeContextProvider>
+                    <Component {...pageProps} />
+                </ThemeContextProvider>
+            </AnimateSharedLayout>
         </React.Fragment>
     )
 }
