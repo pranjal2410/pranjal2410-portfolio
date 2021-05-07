@@ -11,7 +11,12 @@ const useStyles = makeStyles(theme => ({
     title: {
         margin: '0',
         lineHeight: '1.15',
-        fontSize: '4rem',
+        [theme.breakpoints.down('md')]: {
+            fontSize: '2.5rem',
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '6.5rem'
+        },
     }
 }));
 
