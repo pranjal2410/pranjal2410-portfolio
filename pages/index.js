@@ -1,4 +1,4 @@
-import {Grid, AppBar, Toolbar, Typography, IconButton, MuiThemeProvider, CssBaseline, Hidden, Tabs, Tab, useTheme, useMediaQuery} from "@material-ui/core";
+import {Grid, AppBar, Toolbar, Typography, IconButton, MuiThemeProvider, CssBaseline, Hidden, Tabs, Tab, useTheme, useMediaQuery, useScrollTrigger} from "@material-ui/core";
 import {AnimatePresence, motion} from "framer-motion";
 import {ToggleButtonGroup, ToggleButton} from "@material-ui/lab";
 import {Brightness4, Brightness7} from '@material-ui/icons';
@@ -88,7 +88,8 @@ const MainApp = (props) => {
     const {theme, toggleTheme} = useContext(ThemeContext);
     const [tabIndex, setTabIndex] = useState(0);
     const mdDown = useMediaQuery(useTheme().breakpoints.down('md'));
-    const smDown = useMediaQuery(useTheme().breakpoints.down('sm'))
+    const smDown = useMediaQuery(useTheme().breakpoints.down('sm'));
+    const trigger = useScrollTrigger({disableHysteresis: true, threshold: 25})
 
     let tabs = [
         {Component: Initial, name: 'Intro'},
@@ -103,7 +104,7 @@ const MainApp = (props) => {
 
     return (
         <motion.div style={{ flexGrow: 1, padding: '1%', overflow: "hidden" }}>
-            <AppBar style={{ boxShadow: 'none'}} color={mdDown?'inherit':'transparent'} position='fixed'>
+            <AppBar style={{ boxShadow: 'none'}} color={mdDown || trigger?'inherit':'transparent'} position='fixed'>
                 <Toolbar>
                     <Typography variant='h6' style={{ flexGrow: mdDown?1:false}}>
                         Portfolio

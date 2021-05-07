@@ -5,18 +5,13 @@ import Image from "next/image";
 
 const useStyles = makeStyles(theme => ({
     container: {
-        padding: '1%',
+        padding: '2%',
         textAlign: 'center',
     },
     title: {
         margin: '0',
         lineHeight: '1.15',
-        [theme.breakpoints.down('md')]: {
-            fontSize: '2.5rem',
-        },
-        [theme.breakpoints.up('md')]: {
-            fontSize: '6.5rem'
-        },
+        fontSize: '4.5rem'
     }
 }));
 
