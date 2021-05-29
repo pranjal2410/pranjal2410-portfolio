@@ -103,7 +103,7 @@ const MainApp = (props) => {
     }
 
     return (
-        <>
+        <motion.div style={{ flexGrow: 1, padding: '1%', overflow: "hidden" }}>
             <AppBar style={{ boxShadow: 'none'}} color={mdDown || trigger?'inherit':'transparent'} position='fixed'>
                 <Toolbar>
                     <Typography variant='h6' style={{ flexGrow: mdDown?1:false}}>
@@ -129,7 +129,7 @@ const MainApp = (props) => {
                 </Toolbar>
             </AppBar>
             <Toolbar/>
-            <Grid container direction="column" alignItems="center" spacing={2} style={{ flexGrow: 1, padding: '1%', overflow: "hidden" }}>
+            <Grid container direction="column" alignItems="center" spacing={2}>
                 <Hidden lgUp>
                     <Grid item xs={12}>
                         <ToggleButtonGroup
@@ -155,7 +155,7 @@ const MainApp = (props) => {
                     )}
                 </AnimatePresence>
             </Grid>
-        </>
+        </motion.div>
     )
 }
 
