@@ -86,6 +86,10 @@
       {
         "alt": "SQLite",
         "slug": "sqlite"
+      },
+      {
+        "alt": "PostgreSQL",
+        "slug": "postgresql"
       }
     ],
     "Cloud & DevOps": [
