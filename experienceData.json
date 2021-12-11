@@ -15,7 +15,7 @@
       "location": "Pune, India"
     },
     {
-      "organization": "Mindkosh",
+      "organization": "Mindkosh AI",
       "role": "Backend Developer Intern",
       "type": "Intern",
       "startDate": "March 2021",
@@ -23,6 +23,20 @@
       "url": "https://www.linkedin.com/company/mindkosh/about/",
       "image": {
         "src": "/organization-mindkosh.jpeg",
+        "width": 200,
+        "height": 200
+      },
+      "location": "New Delhi, India"
+    },
+    {
+      "organization": "Nonceblox Pvt. Ltd.",
+      "role": "Full Stack Developer Intern",
+      "type": "Intern",
+      "startDate": "August 2021",
+      "endDate": "December 2021",
+      "url": "https://www.linkedin.com/company/nonceblox/about/",
+      "image": {
+        "src": "/organization-nonceblox.jpeg",
         "width": 200,
         "height": 200
       },
