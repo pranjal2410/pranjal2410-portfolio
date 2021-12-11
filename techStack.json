@@ -46,6 +46,10 @@
       {
         "alt": "FastAPI",
         "slug": "fastapi"
+      },
+      {
+        "alt": "NestJS",
+        "slug": "nestjs"
       }
     ],
     "Frontend Technologies": [
