@@ -19,12 +19,17 @@
       "alt": "Gmail",
       "slug": "gmail",
       "url": "mailto://newalkarpranjal2410.pn@gmail.com"
+    },
+    {
+      "alt": "Outlook",
+      "slug": "microsoftoutlook",
+      "url": "mailto://pnewalkar@sfsu.edu"
     }
   ],
   "titles": [
-    "Electronics & Telecommunication Engineering Student",
+    "Masters' student in Computer Science",
     "Software Developer",
-    "Machine Learning Enthusiast",
-    "Interested in Research and Development"
+    "DevOps and Cloud Computing enthusiast",
+    "Looking to work on real-world problems"
   ]
 }
